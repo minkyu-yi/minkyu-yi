@@ -19,7 +19,7 @@ email: lmk3540@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: https://mklee.github.io # the base hostname & protocol for your site, e.g. http://example.com
+url: https://minkyu-yi.github.io # the base hostname & protocol for your site, e.g. http://example.com
 linkedin_username: minkyu-yi
 github_username: minkyu-yi
 instagram_username: leeminkyu
