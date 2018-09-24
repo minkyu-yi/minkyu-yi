@@ -10,5 +10,5 @@ permalink: /about/
 
 ### Work
 
-* 2018 ~ : UI Developer, [Viva Repulica (Toss)](https://toss.im/).
-* 2015 ~ 2018: FE Devleopment Lab, [NHN Entertainment](https://www.nhnent.com/).
+* 2018 ~ : UI Developer, [Viva Repulica (Toss)](https://toss.im/){:target="_blank"}.
+* 2015 ~ 2018: FE Devleopment Lab, [NHN Entertainment](https://www.nhnent.com/){:target="_blank"}.
