@@ -1,0 +1,20 @@
+
+.cp_embed_wrapper {
+    margin-bottom: 40px;
+
+    position: relative;
+    width: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 6px -6px #777;
+
+    iframe {
+        height: 400px;
+    }
+
+    @include media-query($on-laptop) {
+        width: initial;
+        left: initial;
+        transform: initial;
+    }
+}
