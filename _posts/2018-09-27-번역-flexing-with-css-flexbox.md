@@ -4,11 +4,7 @@ title: "[번역]Flexing with CSS Flexbox"
 date: 2018-09-27 23:58 +0900
 ---
 
-[NHNEnt. FE Weekly](https://github.com/nhnent/fe.javascript/wiki/FE-Weekly)에 작성했던 번역글입니다. - Flexbox tutorial
-
----
-
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+[NHNEnt. FE Weekly](https://github.com/nhnent/fe.javascript/wiki/FE-Weekly)에 작성했던 번역글 - Flexbox tutorial
 
 # Flexing with CSS Flexbox
 
@@ -22,6 +18,8 @@ date: 2018-09-27 23:58 +0900
 
 1. Flex Container
 2. Flex Items
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Flex Container
 
