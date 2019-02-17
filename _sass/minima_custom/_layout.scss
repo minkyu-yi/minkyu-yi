@@ -225,6 +225,7 @@
   @include relative-font-size(2.625);
   letter-spacing: -1px;
   line-height: 1;
+  font-weight: 450;
 
   @include media-query($on-laptop) {
     @include relative-font-size(2.25);
@@ -234,11 +235,21 @@
 .post-content {
   margin-bottom: $spacing-unit;
 
-  h2 {
-    @include relative-font-size(2);
+  h1 {
+    @include relative-font-size(2.25);
+    border-bottom: 1px solid #eaecef;
+    padding: .3em 0;
 
     @include media-query($on-laptop) {
-      @include relative-font-size(1.75);
+      @include relative-font-size(2);
+    }
+  }
+
+  h2 {
+    @include relative-font-size(1.85);
+
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.65);
     }
   }
 

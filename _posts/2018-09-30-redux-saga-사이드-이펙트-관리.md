@@ -2,7 +2,11 @@
 layout: post
 title: 'Redux-saga: 사이드 이펙트 관리'
 date: 2018-09-30 22:19 +0900
+category: web
+tags: [redux, redux-saga, react]
 ---
+
+{{ page.tags | join: ', '}}
 
 [NHNEnt. FE Weekly](https://github.com/nhnent/fe.javascript/wiki/FE-Weekly)에 작성했던 글 - Redux-Saga: 사이드 이펙트 관리
 
@@ -47,7 +51,7 @@ Redux-Saga는 애플리케이션에서 필요한 사이드 이펙트를 별도�
 
 ### Saga
 
-`Saga`에 대해 조금 알아보니 [Sagas](http://www.amundsen.com/downloads/sagas.pdf)라는 논문이 있었고, [GOTO 컨퍼런스](https://blog.gotocon.com/)-2015에  "[Applying Saga Pattern](https://youtu.be/xDuwrtwYHu8)"이라는 발표가 있었다. 요약해보면 Saga는 어떤 시스템에서의 장기(Long lived) 트랜잭션과 그 실패 처리를 어떻게 관리할지에 대한 방법이다. 하지만 MSDN의 "[A Saga on Sagas](https://msdn.microsoft.com/en-us/library/jj591569.aspx)"에서는 조금 다르다. CQRS 패턴의 프로세스 매니저로 생각한다. 작업을 효율적으로 처리하는 것 그 자체에 더 관심이 있다. Redux-Saga에서는 위 3가지에서 모두 영감을 받았다고 한다. 다만 개인적으로 Redux-Saga의 Saga는 MSDN의 Saga와 더 유사하다고 생각한다. Saga는 각 작업을 어떻게 관리할지에 대해 더 관심을 둔다.
+`Saga`에 대해 조금 알아보니 [Sagas](http://www.amundsen.com/downloads/sagas.pdf)라는 논문이 있었고, [GOTO 컨퍼런스](https://blog.gotocon.com/)-2015에 "[Applying Saga Pattern](https://youtu.be/xDuwrtwYHu8)"이라는 발표가 있었다. 요약해보면 Saga는 어떤 시스템에서의 장기(Long lived) 트랜잭션과 그 실패 처리를 어떻게 관리할지에 대한 방법이다. 하지만 MSDN의 "[A Saga on Sagas](https://msdn.microsoft.com/en-us/library/jj591569.aspx)"에서는 조금 다르다. CQRS 패턴의 프로세스 매니저로 생각한다. 작업을 효율적으로 처리하는 것 그 자체에 더 관심이 있다. Redux-Saga에서는 위 3가지에서 모두 영감을 받았다고 한다. 다만 개인적으로 Redux-Saga의 Saga는 MSDN의 Saga와 더 유사하다고 생각한다. Saga는 각 작업을 어떻게 관리할지에 대해 더 관심을 둔다.
 
 예를 들어 여행 관련 서비스가 있고, 여행을 예약하는 데에는 항공 예약이나, 숙소, 차량 렌트가 있다고 가정하자. 사용자는 그냥 "여행 프로그램"을 예약한다. 서비스 내부적으로는 비행기, 숙소, 차량 렌트를 모두 같이 예약한다. Redux-Saga의 관점으로는 아래와 같은 흐름이 그려진다.
 
@@ -63,41 +67,41 @@ Redux-Saga는 애플리케이션에서 필요한 사이드 이펙트를 별도�
 
 ```js
 // 1. Dispatch Action
-  {
-    type: INCREMENT_ASYNC
-  }
+{
+  type: INCREMENT_ASYNC;
+}
 
 // 2. Wait 1000ms
-  delay(1000)
+delay(1000);
 
 // 3. Dispatch Action
-  {
-    type: INCREMENT
-  }
+{
+  type: INCREMENT;
+}
 
 // 4. Reducer
-  switch(action) {
-    case INCREMENT:
-      return state + 1
-    default:
-      return state
-  }
+switch (action) {
+  case INCREMENT:
+    return state + 1;
+  default:
+    return state;
+}
 ```
 
 위 순서에서 2번, 3번은 Saga를 이용해 구현할 수 있다. (`GeneratorFunction`을 쓰는 이유, `takeEvery`나 `put`과 같은 `effect`라 부르는 것들은 기회가 된다면 후속편의 글을 작성해서 설명하려 한다. 일단은 Saga의 내부 구현까지는 몰라도 괜찮다.)
 
 ```js
-import { delay } from 'redux-saga' // 참고: delay는 단순히 1초후에 Resolve가 되는 Promise다.
-import { put, takeEvery } from 'redux-saga/effects'
+import { delay } from 'redux-saga'; // 참고: delay는 단순히 1초후에 Resolve가 되는 Promise다.
+import { put, takeEvery } from 'redux-saga/effects';
 
 // INCREMENT_ASYNC 액션이 Dispatch 되면 `incrementAsync`를 수행하도록 등록한다.
 export function* watchIncrementAsync() {
-  yield takeEvery(INCREMENT_ASYNC, incrementAsync)
+  yield takeEvery(INCREMENT_ASYNC, incrementAsync);
 }
 
 function* incrementAsync(action) {
-  yield delay(1000)                 // 1초를 기다리고
-  yield put({ type: INCREMENT })    // INCREMENT 액션을 Dispatch한다.
+  yield delay(1000); // 1초를 기다리고
+  yield put({ type: INCREMENT }); // INCREMENT 액션을 Dispatch한다.
 }
 ```
 
@@ -108,14 +112,14 @@ function* incrementAsync(action) {
 개인적으로 주목할만한 부분은 바로 1번이라 생각한다. 처음 Redux-Saga를 가지고 코드를 작성했을 때 가장 헷갈렸던 부분이었다. Saga에서만 특정 액션을 처리하고, 리듀서에서는 그 액션을 처리하지 않은 경우, 과연 그 액션은 리덕스에도 도달하는지 도달하지 않는지, 도달한다면 언제 도달하는지가 궁금했었다. 미리 말하자면 Saga를 통하는 모든 액션은 리듀서에 먼저 도달한다. Saga에서 액션을 기다리고 처리하는 코드는 다음과 같은 형태로 구현되어 있다.
 
 ```js
-function sagaMiddleware({getState, dispatch}) {
+function sagaMiddleware({ getState, dispatch }) {
   /* Saga 초기화 .... */
 
   return next => action => {
-    const result = next(action) // hit reducers  --- 액션은 리듀서에 먼저 도달한다.
-    sagaStdChannel.put(action)  // Saga에 액션이 Dispatch 됐음을 알린다.
-    return result
-  }
+    const result = next(action); // hit reducers  --- 액션은 리듀서에 먼저 도달한다.
+    sagaStdChannel.put(action); // Saga에 액션이 Dispatch 됐음을 알린다.
+    return result;
+  };
 }
 ```
 

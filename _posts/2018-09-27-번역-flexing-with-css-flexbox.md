@@ -1,14 +1,16 @@
 ---
 layout: post
-title: "[번역]Flexing with CSS Flexbox"
+title: '[번역]Flexing with CSS Flexbox'
 date: 2018-09-27 23:58 +0900
+category: web
+tags: [css, flex]
 ---
 
 [NHNEnt. FE Weekly](https://github.com/nhnent/fe.javascript/wiki/FE-Weekly)에 작성했던 번역글 - Flexbox tutorial
 
 # Flexing with CSS Flexbox
 
-> 원문: [https://blog.logrocket.com/flexing-with-css-flexbox-b7940b329a8a](https://blog.logrocket.com/flexing-with-css-flexbox-b7940b329a8a){:target="_blank"}
+> 원문: [https://blog.logrocket.com/flexing-with-css-flexbox-b7940b329a8a](https://blog.logrocket.com/flexing-with-css-flexbox-b7940b329a8a){:target="\_blank"}
 
 플렉스 박스(Flexbox)라 하는 유연한 박스(flexible box)는 반응형 레이아웃을 매우 쉽게 만들 수 있도록 하는 CSS의 레이아웃 모델 유형이다.
 
@@ -67,9 +69,9 @@ date: 2018-09-27 23:58 +0900
 
 <p data-height="265" data-theme-id="light" data-slug-hash="wXgbrq" data-default-tab="result" data-user="c0depanda" data-pen-title="flex-direction" class="codepen">See the Pen <a href="https://codepen.io/c0depanda/pen/wXgbrq/">flex-direction</a> by Obaseki Nosa (<a href="https://codepen.io/c0depanda">@c0depanda</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
-
 > 역주) 플렉스 아이템의 정렬은 플렉스 컨테이너의 방향을 기준으로 한다. 컨테이너의 방향이 바뀌는 경우(ex - `flow-direction: column`)는 `align-items`와 `justify-content`의 동작도 함께 변한다.
->   - 참고: [MDN - Aligning Items in a Flex Container - Changing the main axis](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container#Changing_the_main_axis)
+>
+> - 참고: [MDN - Aligning Items in a Flex Container - Changing the main axis](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container#Changing_the_main_axis)
 
 <br>
 ### flex-flow
