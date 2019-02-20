@@ -114,6 +114,11 @@
   margin-bottom: $spacing-unit / 2;
 }
 
+.ccl {
+  font-size: 8px;
+  padding: 15px 0;
+}
+
 .contact-list,
 .social-media-list {
   list-style: none;
@@ -267,6 +272,15 @@
     @include media-query($on-laptop) {
       @include relative-font-size(1.125);
     }
+  }
+
+  .img-center {
+    margin: 0 auto;
+    display: block;
+    border-radius: 20px;
+    -webkit-box-shadow: 11px 13px 33px -15px rgba(0,0,0,0.9);
+    -moz-box-shadow: 11px 13px 33px -15px rgba(0,0,0,0.9);
+    box-shadow: 11px 13px 33px -15px rgba(0,0,0,0.9);
   }
 }
 
