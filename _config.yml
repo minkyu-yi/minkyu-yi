@@ -23,9 +23,8 @@ linkedin_username: minkyu-yi
 github_username: minkyu-yi
 instagram_username: leeminkyu
 show_excerpts: true
-facebook:
-  comments: true
-  app_id: 532325157209335
+disqus:
+  shortname: minkyu-yi
 google_analytics: UA-126304187-1
 
 # Build settings

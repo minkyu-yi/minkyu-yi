@@ -2,10 +2,6 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
   <body>
-    {% if page.layout == "post" %}
-      {%- include facebook_sdk.html -%}
-    {% endif %}
-
     {%- include header.html -%}
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
