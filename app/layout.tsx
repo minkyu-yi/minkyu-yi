@@ -7,6 +7,7 @@ import classNames from 'classnames';
 const noto_sans_kr = Noto_Sans_KR({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  authors: { name: '이민규' },
   title: '글 쓰기',
   description: '생각 정리와 글 쓰기',
 };
@@ -17,9 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={classNames([noto_sans_kr.className, 'container', 'py-12'])}
+        className={classNames([
+          noto_sans_kr.className,
+          'container min-h-full',
+          'prose max-w-screen-lg',
+          'flex flex-col',
+          'py-4 sm:p-12',
+        ])}
       >
         <header>
           <div className="px-6 py-3">
@@ -44,7 +51,7 @@ export default function RootLayout({
           </div>
         </header>
 
-        <main className={classNames('prose', 'px-6 py-8')}>{children}</main>
+        <main className="px-6 py-8 flex-1">{children}</main>
 
         <footer className="bg-white mt-8">
           <div className="px-6 py-4">
