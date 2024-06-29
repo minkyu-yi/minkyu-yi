@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
 import Link from 'next/link';
@@ -12,6 +12,18 @@ export const metadata: Metadata = {
   description: '생각 정리와 글 쓰기',
 };
 
+if (typeof window !== 'undefined') {
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,27 +34,29 @@ export default function RootLayout({
       <body
         className={classNames([
           noto_sans_kr.className,
+          'prose dark:prose-invert max-w-screen-lg',
+          'dark:bg-gray-900',
           'container min-h-full',
-          'prose max-w-screen-lg',
           'flex flex-col',
           'py-4 sm:p-12',
         ])}
       >
-        <header>
-          <div className="px-6 py-3">
+        <header className="border-b border-slate-900/10 dark:border-slate-300/10 px-6">
+          <div className="py-3">
             <div className="flex justify-between items-center">
               <div>
-                <span className="text-2xl font-bold">글 쓰기</span>
+                <span className="text-2xl font-bold">
+                  <Link href="/" className="hover:text-gray-400 no-underline">
+                    Minkyu Yi
+                  </Link>
+                </span>
               </div>
               <div>
                 <nav className="space-x-4">
-                  <Link href="/" className="hover:text-gray-600">
-                    Home
-                  </Link>
-                  <Link href="/about" className="hover:text-gray-600">
+                  <Link href="/about" className="hover:text-gray-400">
                     About
                   </Link>
-                  <Link href="#" className="hover:text-gray-600">
+                  <Link href="/" className="hover:text-gray-400">
                     Posts
                   </Link>
                 </nav>
@@ -53,10 +67,10 @@ export default function RootLayout({
 
         <main className="px-6 py-8 flex-1">{children}</main>
 
-        <footer className="bg-white mt-8">
+        <footer className="mt-8">
           <div className="px-6 py-4">
             <div className="flex justify-between items-center">
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 © 2024 글 쓰기. All rights reserved.
               </p>
             </div>
