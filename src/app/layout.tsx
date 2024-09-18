@@ -4,6 +4,7 @@ import './globals.css';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from '@vercel/analytics/react';
 
 const noto_sans_kr = Noto_Sans_KR({ subsets: ['latin'] });
 
@@ -77,6 +78,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <Analytics />
       </body>
       <GoogleAnalytics gaId="G-2JF8J4DVF9" />
     </html>
