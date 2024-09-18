@@ -3,6 +3,7 @@ import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
 import Link from 'next/link';
 import classNames from 'classnames';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const noto_sans_kr = Noto_Sans_KR({ subsets: ['latin'] });
 
@@ -77,6 +78,7 @@ export default function RootLayout({
           </div>
         </footer>
       </body>
+      <GoogleAnalytics gaId="G-2JF8J4DVF9" />
     </html>
   );
 }
