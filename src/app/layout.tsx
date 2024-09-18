@@ -33,6 +33,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="uZJu5bfkgkjg4XvNFoWa00VdYhWoA0XtqbxF4rKEexs"
+        />
+      </head>
       <body
         className={classNames([
           noto_sans_kr.className,
