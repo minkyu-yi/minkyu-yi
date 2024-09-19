@@ -16,10 +16,10 @@ export default async function sitemap({
   return [
     { url: `${BASE_URL}` },
     { url: `${BASE_URL}/posts` },
-    { url: `${BASE_URL}/about`, lastModified: '2024-09-18' },
+    { url: `${BASE_URL}/about`, lastModified: new Date('2024-09-18') },
     ...posts.map((post) => ({
       url: `${BASE_URL}/${post.slug}`,
-      lastModified: post.publishDate,
+      lastModified: new Date(post.publishDate),
     })),
   ];
 }
